@@ -2,9 +2,27 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Document</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>Hotel</title>
 	</head>
-    <body>
+    <body>		  
+		<div>
+			<form id="formulario" action="formulario">
+				<label for="dataEntrada">Data de entrada</label><br>
+				<input name="dataEntrada" type="date"><br><br>
 
+				<label for="dataSaida">Data de saída</label><br>
+				<input name="dataSaida" type="date"><br><br>
+
+				<label for="hospedes">Quantidade de hóspedes</label><br>
+				<input name="hospedes" type="number" min="1" max="10"><br>
+		
+				<br><br>
+
+				<input type="submit" value="Calcular custo" id="calcularButton">
+			</form>
+		</div>
+
+		<script src="js/script.js"></script>
     </body>
 </html>
