@@ -1,20 +1,18 @@
 let dataEntrada
 let dataSaida
 let hospedes
+let DateTime = luxon.DateTime;
 
 let formulario = document.getElementById('formulario');
 
 formulario.addEventListener('submit', (e) => {
     e.preventDefault();
     
-    let dataEntrada = e.target.dataEntrada;
-    let dataSaida = e.target.dataSaida;
-    let hospedes = e.target.hospedes;
+    let dataEntrada = DateTime.fromISO(e.target.dataEntrada.value);
+    let dataSaida = DateTime.fromISO(e.target.dataSaida.value);
+    let hospedes = e.target.hospedes.value;
 
-    let dataEntradaBrasileira = dataEntrada.value.split('-').reverse().join('/');
-    let dataSaidaBrasileira = dataSaida.value.split('-').reverse().join('/');
-
-    if (dataEntrada.value >= dataSaida.value) {
+    if (dataEntrada >= dataSaida) {
         alert('Data de saída deve ser posterior a data de entrada');
 
         formulario.reset();
@@ -33,8 +31,8 @@ formulario.addEventListener('submit', (e) => {
                 let dadosHospedagem = document.createElement("div");
         
                 dadosHospedagem.innerHTML = `<h3>Dados da Hospedagem:</h3>
-                                        <p><br>Data de entrada: ${dataEntradaBrasileira}</p> 
-                                        <p>Data de saida: ${dataSaidaBrasileira}</p> 
+                                        <p><br>Data de entrada: ${dataEntrada.toLocaleString()}</p> 
+                                        <p>Data de saida: ${dataSaida.toLocaleString()}</p> 
                                         <p>Quantidade de diárias: ${this.quantidadeDiarias}</p> 
                                         <p>Quantidade de hóspedes: ${this.quantidadeHospedes}</p>
                                         <p><b>Custo total das diárias: ${(new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(custoDiaria))}</b></p>`;
@@ -44,13 +42,16 @@ formulario.addEventListener('submit', (e) => {
         }
         
         const hospedagens = [];
-        hospedagens.push(new Hospedagem (calculaDiarias(dataEntrada.value, dataSaida.value), hospedes.value, 300));
+        hospedagens.push(new Hospedagem (calculaDiarias(dataEntrada, dataSaida), hospedes, 300));
         hospedagens.forEach(hospedagem => hospedagem.calcularCusto());
 
-        const hospedagensJson = JSON.stringify({checkin: dataEntrada.value, checkout: dataSaida.value, hospedes: hospedes.value});
+        localStorage.clear();
+        const hospedagensJson = JSON.stringify({checkin: dataEntrada.toLocaleString(), checkout: dataSaida.toLocaleString(), qhospedes: hospedes});
         localStorage.setItem('hospedagem', hospedagensJson);
-    }
+        }
+
 });
+
 
 function calculaDiarias(a, b) {
     return Math.floor((new Date(b) - new Date(a))/86400000);
