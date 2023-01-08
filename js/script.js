@@ -11,6 +11,7 @@ formulario.addEventListener('submit', (e) => {
     let dataEntrada = DateTime.fromISO(e.target.dataEntrada.value);
     let dataSaida = DateTime.fromISO(e.target.dataSaida.value);
     let hospedes = e.target.hospedes.value;
+    let quantidadeDiarias = dataSaida.diff(dataEntrada, 'days').toObject().days;
 
     if (dataEntrada >= dataSaida) {
         alert('Data de saída deve ser posterior a data de entrada');
@@ -42,7 +43,7 @@ formulario.addEventListener('submit', (e) => {
         }
         
         const hospedagens = [];
-        hospedagens.push(new Hospedagem (calculaDiarias(dataEntrada, dataSaida), hospedes, 300));
+        hospedagens.push(new Hospedagem (quantidadeDiarias, hospedes, 300));
         hospedagens.forEach(hospedagem => hospedagem.calcularCusto());
 
         localStorage.clear();
@@ -51,11 +52,6 @@ formulario.addEventListener('submit', (e) => {
         }
 
 });
-
-
-function calculaDiarias(a, b) {
-    return Math.floor((new Date(b) - new Date(a))/86400000);
-}
 
 
 
