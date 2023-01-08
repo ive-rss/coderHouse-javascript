@@ -1,6 +1,3 @@
-let dataEntrada
-let dataSaida
-let hospedes
 let DateTime = luxon.DateTime;
 
 let formulario = document.getElementById('formulario');
@@ -14,7 +11,10 @@ formulario.addEventListener('submit', (e) => {
     let quantidadeDiarias = dataSaida.diff(dataEntrada, 'days').toObject().days;
 
     if (dataEntrada >= dataSaida) {
-        alert('Data de saída deve ser posterior a data de entrada');
+        Swal.fire({
+            icon: 'error',
+            text: 'A data do check-out deve ser posterior a data do check-in.',
+        })
 
         formulario.reset();
 

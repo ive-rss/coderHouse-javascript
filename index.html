@@ -10,19 +10,20 @@
 		<div>
 			<form id="formulario" action="formulario">
 				<label for="dataEntrada">Data de entrada</label><br>
-				<input name="dataEntrada" type="date"><br><br>
+				<input name="dataEntrada" type="date" required><br><br>
 
 				<label for="dataSaida">Data de saída</label><br>
-				<input name="dataSaida" type="date"><br><br>
+				<input name="dataSaida" type="date" required><br><br>
 
 				<label for="hospedes">Quantidade de hóspedes</label><br>
-				<input name="hospedes" type="number" min="1" max="10"><br>
+				<input name="hospedes" type="number" min="1" max="10" required><br>
 		
 				<br><br>
 
 				<input type="submit" value="Calcular custo" id="calcularButton">
 			</form>
 		</div>
+		<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 		<script src="js/script.js"></script>
     </body>
 </html>
