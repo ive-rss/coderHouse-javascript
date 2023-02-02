@@ -3,10 +3,46 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<link rel="stylesheet" href="css/style.css">
 		<script src="https://cdn.jsdelivr.net/npm/luxon@3.2.1/build/global/luxon.min.js"></script>
+		
 		<title>Testes</title>
 	</head>
-    <body>		  
+    <body>
+		<nav class="navbar sticky-top navbar-expand-md navbar-light bg-light">
+			<a class="navbar-brand" href="index.html">
+				<img src="imagens/Tropical4.svg" width="187,50" height="50" alt="Tropical">
+			</a>
+
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Abrir Navegação">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="#">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Suítes</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Serviços</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Contato</a>
+					</li>
+					<li class="nav-item">
+						<a class="btn btn-outline-primary" href="#">Reservas</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<div>
+			<img src="imagens/Group 4.png" width="100%" class="showup-animation">
+		</div>
+
 		<div>
 			<form id="formulario" action="formulario">
 				<label for="dataEntrada">Data de entrada</label><br>
@@ -23,6 +59,11 @@
 				<input type="submit" value="Calcular custo" id="calcularButton">
 			</form>
 		</div>
+		<div id="dadosHospedagem"></div>
+
+		<script src="js/jquery-3.2.1.slim.min.js"></script>
+		<script src="js/popper.min.js"></script>
+		<script src="js/bootstrap.js"></script>
 		<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 		<script src="js/script.js"></script>
     </body>

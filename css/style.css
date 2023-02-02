@@ -1,0 +1,16 @@
+.showup-animation {
+    opacity: 0;
+    animation-name: show-up;
+    animation-duration: 2s;
+    animation-delay: .4s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes show-up {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
