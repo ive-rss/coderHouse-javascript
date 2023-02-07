@@ -26,10 +26,24 @@ html {
 
 body {
     overflow-x: hidden;
+    font-family: 'Roboto', sans-serif;
 }
 
+.bg-form{
+    background-color: whitesmoke;
+    width: 90%;
+    height: auto;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 5px 10px 18px #0545598c;
+  }
+  
 .img-zoom:hover {
     height: 350px;
     cursor: pointer;
     transition: all .5s ease-in-out;
+}
+
+.letter-spacing {
+    letter-spacing: .05em;
 }
