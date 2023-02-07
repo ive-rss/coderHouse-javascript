@@ -14,3 +14,22 @@
         opacity: 1;
     }
 }
+
+.box-shadow {
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.05),
+                0 4px 8px 0 rgba(0,0,0,.05);
+}
+
+html {
+    scroll-behavior: smooth;
+  }
+
+body {
+    overflow-x: hidden;
+}
+
+.img-zoom:hover {
+    height: 350px;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+}
