@@ -22,7 +22,11 @@
 
 html {
     scroll-behavior: smooth;
-  }
+}
+
+:target {
+    scroll-margin-top: 6em;
+}
 
 body {
     overflow-x: hidden;
