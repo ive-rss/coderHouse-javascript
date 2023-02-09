@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
     let formBusca = document.getElementById('formBusca');
 
+    // Botão busca
     formBusca.addEventListener('submit', (e) => {
         e.preventDefault();
         
@@ -79,6 +80,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
         };
     });
 
+    // Botão Reserve Já
     let formReserva = document.getElementById('btnReserveJa');
 
     formReserva.addEventListener('click', (e) => {
@@ -88,24 +90,12 @@ document.addEventListener("DOMContentLoaded", function(e) {
         
         $('#modalBusca').modal('hide');
 
-        
-        document.getElementById("contato").classList.replace('bg-light', 'bg-info');
-
-        document.getElementById("contato").classList.replace('text-dark', 'text-light');
-
-        document.getElementById("contato1").classList.replace('text-secondary', 'text-white-50');
-
-        document.getElementById("contato2").classList.replace('text-secondary', 'text-white-50');
-
-        document.getElementById("contato3").classList.replace('text-secondary', 'text-white-50');
-
-        document.getElementById("contato4").classList.replace('text-secondary', 'text-white-50');
-
-        document.getElementById("rodape").classList.replace('bg-info', 'bg-dark');
-        
         document.getElementById("dadosHospede").scrollIntoView();
+
     });
 
+
+    // Botão Finalizar Reserva
     let confirmacaoReserva = document.getElementById("confirmacaoReserva");
 
     confirmacaoReserva.addEventListener('click', (e) => {
@@ -114,31 +104,22 @@ document.addEventListener("DOMContentLoaded", function(e) {
         Swal.fire({
             icon: 'success',
             text: 'Reserva efetuada com sucesso!',
-        });
-
+            allowOutsideClick: false,
+            
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.getElementById("dadosHospede").setAttribute("style", "display:none");
+            };
+          });
     });
 
+
+    // Botão Cancelar
     let cancelarReserva = document.getElementById("cancelarReserva");
 
     cancelarReserva.addEventListener('click', (e) => {
         e.preventDefault();
-
         document.getElementById("dadosHospede").setAttribute("style", "display:none");
-
-        document.getElementById("contato").classList.replace('bg-info', 'bg-light');
-
-        document.getElementById("contato").classList.replace('text-light', 'text-dark');
-
-        document.getElementById("contato1").classList.replace('text-white-50', 'text-secondary');
-
-        document.getElementById("contato2").classList.replace('text-white-50', 'text-secondary');
-
-        document.getElementById("contato3").classList.replace('text-white-50', 'text-secondary');
-
-        document.getElementById("contato4").classList.replace('text-white-50', 'text-secondary');
-
-        document.getElementById("rodape").classList.replace('bg-dark', 'bg-info');
-        
         document.getElementById("reservas").scrollIntoView();
        
     });
